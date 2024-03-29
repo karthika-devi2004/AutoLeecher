@@ -37,7 +37,7 @@ async def incoming_purge_msg(client, message):
             LOGGER.info(download.remove(force=True))
     await i_m_sefg2.delete()
 
-async def incoming_msg(client, message):
+async def incoming_msg_h(client, message):
     """/leech command"""
     g_id = message.from_user.id
     gu_id = message.from_user.first_name
