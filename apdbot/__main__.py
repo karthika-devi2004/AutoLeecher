@@ -33,7 +33,7 @@ from apdbot import (
 from pyrogram import Client, filters
 from pyrogram.handlers import MessageHandler, CallbackQueryHandler
 
-from apdbot.plugins.incoming_msg import incoming_msg, incoming_ytdl, ytdl_list
+from apdbot.plugins.incoming_msg import incoming_msg_h, incoming_ytdl, ytdl_list
 from apdbot.plugins.status_msg import (
     status_msg,
     cancel_msg,
@@ -64,7 +64,7 @@ if __name__ == "__main__" :
     )
     #
     incoming_msg_handler = MessageHandler(
-        incoming_msg,
+        incoming_msg_h,
         filters=filters.command([f"{LEECH_CMD}"]) & filters.chat(chats=AUTH)
     )
     app.add_handler(incoming_msg_handler)
