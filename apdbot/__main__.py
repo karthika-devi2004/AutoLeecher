@@ -63,17 +63,18 @@ if __name__ == "__main__" :
         workers=343
     )
     #
-    incoming_msg_handler = MessageHandler(
-        incoming_msg_h,
-        filters=filters.command([f"{LEECH_CMD}"]) & filters.chat(chats=AUTH)
-    )
-    app.add_handler(incoming_msg_handler)
     #
     incoming_ytdl_handler = MessageHandler(
         incoming_ytdl,
         filters=filters.command([f"{YTDL_CMD}"]) & filters.chat(chats=AUTH)
     )
     app.add_handler(incoming_ytdl_handler)
+    
+    incoming_msg_handler = MessageHandler(
+        incoming_msg_h,
+        filters=filters.command("leech") & filters.chat(chats=AUTH)
+    )
+    app.add_handler(incoming_msg_handler)
     #
     incoming_youtube_playlist_dl_handler = MessageHandler(
         ytdl_list,
